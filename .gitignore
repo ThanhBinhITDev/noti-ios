@@ -1,2 +1,13 @@
 .idea
 .DS_Store
+# Private keys - NEVER commit to GitHub
+backend-sender.js
+.env
+.env.local
+
+# Dependencies
+node_modules/
+
+# IDE
+.vscode/
+*.swp
