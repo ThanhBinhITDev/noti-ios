@@ -10,7 +10,7 @@ const VAPID_PRIVATE_KEY = "HHn_OHOfecPLK4W6ZAsuidSAf53oSzHVo5jzUq4hMyA";
 const webpush = require('web-push');
 
 webpush.setVapidDetails(
-    'https://andreinwald.github.io/webpush-ios-example/',
+    'https://thanhbinhitdev.github.io/noti-ios/',
     VAPID_PUBLIC_KEY,
     VAPID_PRIVATE_KEY
 );
@@ -27,12 +27,12 @@ const pushSubscription = {
 ;
 
 let pushData = JSON.stringify({
-    "title": "Thanh Binh IT",
-    "body": "Additional text with some description",
-    "icon": "https://andreinwald.github.io/webpush-ios-example/images/favicon.png",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg/1920px-Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg",
+    "title": "Thông báo BIDV",
+    "body": "Tài khoản thanh toán: 8866476102\nSố tiền GD: +10,000 VND\nSố dư cuối: 10,852 VND\nNội dung: Chuyển tiền ting ting từ Nyxaria AI",
+    "icon": "https://thanhbinhitdev.github.io/noti-ios/images/bidv-logo.png",
+    "badge": "https://thanhbinhitdev.github.io/noti-ios/images/badge.png",
     "data": {
-        "url": "https://andreinwald.github.io/webpush-ios-example/?page=success",
+        "url": "https://thanhbinhitdev.github.io/noti-ios/?page=success",
         "message_id": "your_internal_unique_message_id_for_tracking"
     }
 });
