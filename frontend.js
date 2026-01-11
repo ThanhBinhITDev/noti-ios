@@ -99,12 +99,19 @@ function testSend() {
     ];
 
     let balance = 47000000; // Số dư ban đầu: 47 triệu
+    const millionIndex = Math.floor(Math.random() * 20) + 1; // Vị trí ngẫu nhiên cho tiền triệu (1-20)
     
     // Gửi 20 thông báo, mỗi thông báo cách nhau 3 giây
     for (let i = 1; i <= 20; i++) {
         setTimeout(async () => {
-            // Số tiền GD ngẫu nhiên từ 200,000 tới 20,000,000 VND
-            const amount = Math.floor(Math.random() * (20000000 - 200000 + 1)) + 200000;
+            let amount;
+            if (i === millionIndex) {
+                // Tiền triệu chỉ 1 lần: 1,000,000 - 20,000,000 VND
+                amount = Math.floor(Math.random() * (20000000 - 1000000 + 1)) + 1000000;
+            } else {
+                // Tiền trăm: 100,000 - 900,000 VND
+                amount = Math.floor(Math.random() * (900000 - 100000 + 1)) + 100000;
+            }
             
             // Tăng số dư
             balance += amount;
