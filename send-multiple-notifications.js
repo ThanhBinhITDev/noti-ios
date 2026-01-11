@@ -23,46 +23,46 @@ const pushSubscription = {
     }
 };
 
-// Danh sách nội dung giao dịch ngân hàng
-const transactions = [
-    'Chuyển tiền ting ting từ Nyxaria AI',
-    'Thanh toán hóa đơn điện tháng 1',
-    'Rút tiền tại ATM Techcombank',
-    'Chuyển tiền lương từ công ty',
-    'Mua hàng tại Lazada',
-    'Nạp tiền điện thoại Viettel',
-    'Thanh toán hóa đơn nước',
-    'Chuyển tiền cho bạn bè',
-    'Mua vé xem phim online',
-    'Đóng phí BHYT',
-    'Nhận tiền hoàn lại từ shop',
-    'Thanh toán hóa đơn internet',
-    'Mua bảo hiểm trực tuyến',
-    'Rút tiền qua ứng dụng ngân hàng',
-    'Chuyển tiền quốc tế',
-    'Mua sắm trên Shopee',
-    'Thanh toán học phí',
-    'Tiền lãi tiết kiệm',
-    'Chuyển tiền cho gia đình',
-    'Thanh toán thẻ tín dụng'
+// Danh sách dịch vụ với ID/reference
+const services = [
+    'naptien id' + Math.random().toString(36).substr(2, 8),
+    'chuyenkhoan #98923',
+    'thanhtoan #jahaksj9212vv',
+    'naptien id' + Math.random().toString(36).substr(2, 8),
+    'chuyenkhoan #45821',
+    'thanhtoan #xvk283ksl',
+    'naptien id' + Math.random().toString(36).substr(2, 8),
+    'chuyenkhoan #92134',
+    'thanhtoan #pqr928sku',
+    'naptien id' + Math.random().toString(36).substr(2, 8),
+    'chuyenkhoan #11923',
+    'thanhtoan #abc832nxc',
+    'naptien id' + Math.random().toString(36).substr(2, 8),
+    'chuyenkhoan #54782',
+    'thanhtoan #def472hxx',
+    'naptien id' + Math.random().toString(36).substr(2, 8),
+    'chuyenkhoan #71293',
+    'thanhtoan #ghi582olk',
+    'naptien id' + Math.random().toString(36).substr(2, 8),
+    'chuyenkhoan #83921'
 ];
 
 // Hàm gửi thông báo với delay
 async function sendMultipleNotifications() {
-    let balance = 10852; // Số dư ban đầu
+    let balance = 47000000; // Số dư ban đầu: 47 triệu
 
     for (let i = 1; i <= 20; i++) {
         await new Promise(resolve => {
             setTimeout(async () => {
-                // Số tiền GD ngẫu nhiên từ 5,000 tới 100,000 VND
-                const amount = Math.floor(Math.random() * (100000 - 5000 + 1)) + 5000;
+                // Số tiền GD ngẫu nhiên từ 200,000 tới 20,000,000 VND
+                const amount = Math.floor(Math.random() * (20000000 - 200000 + 1)) + 200000;
                 
                 // Tăng số dư
                 balance += amount;
 
                 const pushData = JSON.stringify({
-                    "title": `Thông báo BIDV (#${i}/20)`,
-                    "body": `Tài khoản thanh toán: 8866476102\nSố tiền GD: +${amount.toLocaleString('vi-VN')} VND\nSố dư cuối: ${balance.toLocaleString('vi-VN')} VND\nNội dung: ${transactions[i - 1]}`,
+                    "title": "Thông báo BIDV",
+                    "body": `Tài khoản thanh toán: 8866476102\nSố tiền GD: +${amount.toLocaleString('vi-VN')} VND\nSố dư cuối: ${balance.toLocaleString('vi-VN')} VND\nNội dung: ${services[i - 1]}`,
                     "icon": "https://thanhbinhitdev.github.io/noti-ios/images/bidv-logo.png",
                     "badge": "https://thanhbinhitdev.github.io/noti-ios/images/badge.png",
                     "data": {
