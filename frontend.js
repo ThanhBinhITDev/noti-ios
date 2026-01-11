@@ -17,7 +17,7 @@ async function initServiceWorker() {
         case 'denied':
             document.getElementById('subscribe_btn').style.display = 'none';
             document.getElementById('active_sub').style.display = 'block';
-            document.getElementById('active_sub').innerHTML = 'User denied push permission';
+            document.getElementById('active_sub').innerHTML = 'Người dùng đã từ chối quyền nhận thông báo';
     }
 }
 
@@ -55,14 +55,14 @@ async function subscribeToPush() {
         // Here you can send fetch request with subscription data to your backend API for next push sends from there
     } catch (error) {
         document.getElementById('active_sub').style.display = 'block';
-        document.getElementById('active_sub').innerHTML = 'User denied push permission';
+        document.getElementById('active_sub').innerHTML = 'Người dùng đã từ chối quyền nhận thông báo';
     }
 }
 
 function displaySubscriptionInfo(subscription) {
     document.getElementById('subscribe_btn').style.display = 'none';
     document.getElementById('active_sub').style.display = 'block';
-    document.getElementById('active_sub').innerHTML = '<b>Active subscription:</b><br><br>'
+    document.getElementById('active_sub').innerHTML = '<b>Đăng ký đang hoạt động:</b><br><br>'
         + JSON.stringify(subscription.toJSON());
     document.getElementById('test_send_btn').style.display = 'block';
 }
@@ -88,7 +88,7 @@ Nội dung: Chuyển tiền ting ting từ Nyxaria AI`,
 }
 
 if ((new URLSearchParams(window.location.search)).get('page') === 'success') {
-    document.getElementById('content').innerHTML = 'You successfully opened page from WebPush! (this url was that was set in json data param)';
+    document.getElementById('content').innerHTML = 'Bạn đã mở trang thành công từ WebPush! (đây là URL được đặt trong tham số data của thông báo)';
 }
 
 if (navigator.serviceWorker) {

@@ -1,7 +1,7 @@
-// Public part of VAPID key, generation of that covered in README
-// All subscription tokens associated with that key, so if you change it - you may lose old subscribers
-// You MUST need generate your own VAPID keys!
-// Newer share your PRIVATE_VAPID_KEY. It should be stored in a safe storage
+// Phần public của VAPID key (xem README để biết cách sinh)
+// Tất cả subscription token liên kết với khóa này, nếu thay đổi bạn có thể mất các subscriber cũ
+// Bạn PHẢI sinh VAPID keys riêng cho dự án của bạn
+// KHÔNG chia sẻ PRIVATE_VAPID_KEY công khai; lưu nó ở nơi an toàn
 const VAPID_PUBLIC_KEY = "BF_fI7bBysNworhKwSX44eFbzUqliVsS3MPnVI62aSZTQQ5VHxC7yznuILCsE9ezUxh4P2D3mlm5faxj1YXa1b8"
 const VAPID_PRIVATE_KEY = "HHn_OHOfecPLK4W6ZAsuidSAf53oSzHVo5jzUq4hMyA";
 

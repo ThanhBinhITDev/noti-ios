@@ -2,7 +2,7 @@ self.addEventListener('push', (event) => {
     // PushData keys structure standart https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification
     let pushData = event.data.json();
     if (!pushData || !pushData.title) {
-        console.error('Received WebPush with an empty title. Received body: ', pushData);
+        console.error('Nhận WebPush không có tiêu đề. Nội dung nhận được: ', pushData);
     }
     self.registration.showNotification(pushData.title, pushData)
         .then(() => {
@@ -15,11 +15,11 @@ self.addEventListener('notificationclick', function (event) {
     event.notification.close();
 
     if (!event.notification.data) {
-        console.error('Click on WebPush with empty data, where url should be. Notification: ', event.notification)
+        console.error('Nhấn vào thông báo nhưng dữ liệu trống (không có url). Notification: ', event.notification)
         return;
     }
     if (!event.notification.data.url) {
-        console.error('Click on WebPush without url. Notification: ', event.notification)
+        console.error('Nhấn vào thông báo nhưng không có trường url. Notification: ', event.notification)
         return;
     }
 

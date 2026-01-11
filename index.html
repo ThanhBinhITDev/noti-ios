@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <title>WebPush iOS example</title>
+    <title>Ví dụ WebPush cho iOS</title>
     <base href="https://thanhbinhitdev.github.io/noti-ios/">
     <link rel="manifest" href="manifest.json"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -21,27 +21,26 @@
 </head>
 <body>
 <div class="wrapper">
-    <h1>WebPush iOS example</h1>
+    <h1>Ví dụ WebPush cho iOS</h1>
 
     <div id="content">
         <div id="add-to-home-screen">
-            For WebPush work you may need to add this website to Home Screen at your iPhone or iPad (window.navigator is
-            not
-            standalone).
+            Để WebPush hoạt động trên iPhone/iPad bạn có thể cần thêm trang này vào Màn hình chính (Home Screen) nếu
+            trang chưa ở chế độ PWA (window.navigator không ở chế độ standalone).
             <img src="images/webpush-add-to-home-screen.jpg" alt="webpush add to some screen">
         </div>
 
-        <div id="scan-qr-code">Open this page at your iPhone/iPad:
+        <div id="scan-qr-code">Mở trang này bằng iPhone/iPad:
             <img src="images/qrcode.png" alt="qrCode"><br><br>
         </div>
 
-        <button id="subscribe_btn" onclick="subscribeToPush()">Subscribe to notifications</button>
+        <button id="subscribe_btn" onclick="subscribeToPush()">Đăng ký nhận thông báo</button>
 
         <div id="active_sub"></div>
-        <button id="test_send_btn" onclick="testSend()">Send test push</button>
+        <button id="test_send_btn" onclick="testSend()">Gửi thông báo thử</button>
     </div>
 
-    <a id="source_link" href="https://github.com/thanhbinhitdev/noti-ios">Code of this page</a>
+    <a id="source_link" href="https://github.com/thanhbinhitdev/noti-ios">Mã nguồn của trang này</a>
 </div>
 
 <script src="frontend.js"></script>
