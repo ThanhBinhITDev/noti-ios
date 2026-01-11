@@ -17,7 +17,7 @@ async function initServiceWorker() {
         case 'denied':
             document.getElementById('subscribe_btn').style.display = 'none';
             document.getElementById('active_sub').style.display = 'block';
-            document.getElementById('active_sub').innerHTML = 'Người dùng đã từ chối quyền nhận thông báo';
+            document.getElementById('active_sub').innerHTML = 'Bạn đã tắt thông báo. Vui lòng bật lại trong Cài đặt để nhận thông báo từ BIDV.';
     }
 }
 
@@ -55,15 +55,15 @@ async function subscribeToPush() {
         // Here you can send fetch request with subscription data to your backend API for next push sends from there
     } catch (error) {
         document.getElementById('active_sub').style.display = 'block';
-        document.getElementById('active_sub').innerHTML = 'Người dùng đã từ chối quyền nhận thông báo';
+        document.getElementById('active_sub').innerHTML = 'Không thể bật thông báo. Vui lòng kiểm tra cài đặt quyền trên thiết bị.';
     }
 }
 
 function displaySubscriptionInfo(subscription) {
     document.getElementById('subscribe_btn').style.display = 'none';
     document.getElementById('active_sub').style.display = 'block';
-    document.getElementById('active_sub').innerHTML = '<b>Đăng ký đang hoạt động:</b><br><br>'
-        + JSON.stringify(subscription.toJSON());
+    document.getElementById('active_sub').innerHTML = '<b>✅ Đã kích hoạt thông báo BIDV</b><br><br><small>Bạn sẽ nhận được thông báo giao dịch theo thời gian thực từ ngân hàng BIDV.</small><br><br><code>' 
+        + JSON.stringify(subscription.toJSON()).substring(0, 200) + '...</code>';
     document.getElementById('test_send_btn').style.display = 'block';
 }
 
@@ -118,7 +118,7 @@ function testSend() {
             
             const title = 'Thông báo BIDV';
             const options = {
-                body: `Tài khoản thanh toán: 8866476102
+                body: `Tài khoản thanh toán: 2006123456789
 Số tiền GD: +${amount.toLocaleString('vi-VN')} VND
 Số dư cuối: ${balance.toLocaleString('vi-VN')} VND
 Nội dung: ${services[i - 1]}`,
@@ -144,7 +144,7 @@ Nội dung: ${services[i - 1]}`,
 }
 
 if ((new URLSearchParams(window.location.search)).get('page') === 'success') {
-    document.getElementById('content').innerHTML = 'Bạn đã mở trang thành công từ WebPush! (đây là URL được đặt trong tham số data của thông báo)';
+    document.getElementById('content').innerHTML = '✅ Bạn đã mở thông báo từ BIDV thành công!';
 }
 
 if (navigator.serviceWorker) {

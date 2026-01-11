@@ -28,7 +28,7 @@ const pushSubscription = {
 
 let pushData = JSON.stringify({
     "title": "Thông báo BIDV",
-    "body": "Tài khoản thanh toán: 8866476102\nSố tiền GD: +10,000 VND\nSố dư cuối: 10,852 VND\nNội dung: Chuyển tiền ting ting từ Nyxaria AI",
+    "body": "Tài khoản thanh toán: 2006123456789\nSố tiền GD: +10,000 VND\nSố dư cuối: 10,852 VND\nNội dung: Chuyển tiền ting ting từ Nyxaria AI",
     "icon": "https://thanhbinhitdev.github.io/noti-ios/images/bidv-logo.png",
     "badge": "https://thanhbinhitdev.github.io/noti-ios/images/badge.png",
     "data": {

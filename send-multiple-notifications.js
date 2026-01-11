@@ -69,7 +69,7 @@ async function sendMultipleNotifications() {
 
                 const pushData = JSON.stringify({
                     "title": "Thông báo BIDV",
-                    "body": `Tài khoản thanh toán: 200623456789\nSố tiền GD: +${amount.toLocaleString('vi-VN')} VND\nSố dư cuối: ${balance.toLocaleString('vi-VN')} VND\nNội dung: ${services[i - 1]}`,
+                    "body": `Tài khoản thanh toán: 2006123456789\nSố tiền GD: +${amount.toLocaleString('vi-VN')} VND\nSố dư cuối: ${balance.toLocaleString('vi-VN')} VND\nNội dung: ${services[i - 1]}`,
                     "icon": "https://thanhbinhitdev.github.io/noti-ios/images/bidv-logo.png",
                     "badge": "https://thanhbinhitdev.github.io/noti-ios/images/badge.png",
                     "data": {

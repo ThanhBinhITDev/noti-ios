@@ -1,4 +1,6 @@
 {
-  "name": "Ví dụ WebPush cho iOS",
-  "display": "standalone"
+  "name": "BIDV Thông Báo Giao Dịch",
+  "short_name": "BIDV",
+  "display": "standalone",
+  "start_url": "./"
 }

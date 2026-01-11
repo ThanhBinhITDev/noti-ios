@@ -1,16 +1,17 @@
-# Ví dụ WebPush cho iOS
-_WebPush là công nghệ trình duyệt cho phép trang web gửi thông báo từ backend tới người đăng ký. Hỗ trợ trên iPhone và iPad!_
+# BIDV Thông Báo Giao Dịch
+_Ứng dụng mô phỏng và demo hệ thống thông báo giao dịch ngân hàng BIDV trên iOS bằng công nghệ WebPush._
 <br><br>
-<b>Demo https://thanhbinhitdev.github.io/noti-ios/ </b><br>
+<b>Demo: https://thanhbinhitdev.github.io/noti-ios/ </b><br>
 
-<img src="images/webpush-iphone-prompt.png" alt="Iphone prompt example" style="height:400px">
+<img src="images/webpush-iphone-prompt.png" alt="BIDV notification on iPhone" style="height:400px">
 
 <br><br>
-**Tóm tắt nhanh - WebPush trên iOS**
-- Người dùng cần thêm trang của bạn vào **Màn hình chính (Home Screen)** trên iPhone/iPad
-- `manifest.json` cần đặt **display: standalone**
-- Bạn **không cần** đăng ký với apple.com để nhận GCM_SENDER_ID
-- Thay vào đó, bạn cần tạo **VAPID** (cặp khóa public/private)
+**Tính năng chính**
+- 📱 Nhận thông báo giao dịch thời gian thực trên iPhone/iPad
+- 💰 Mô phỏng các loại giao dịch: Nạp tiền, Chuyển khoản, Thanh toán
+- 📊 Hiển thị số dư tài khoản cập nhật tự động
+- 🎯 Giao diện hiện đại, tối giản (Modern Minimalism)
+- ✨ Hỗ trợ Glassmorphism effect
 <br/>
 
 ---

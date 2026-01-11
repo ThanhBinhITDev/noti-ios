@@ -1,6 +1,6 @@
 <html lang="vi">
 <head>
-    <title>Ví dụ WebPush cho iOS</title>
+    <title>BIDV Thông Báo Giao Dịch</title>
     <base href="https://thanhbinhitdev.github.io/noti-ios/">
     <link rel="manifest" href="manifest.json"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -247,29 +247,29 @@
 </head>
 <body>
 <div class="wrapper">
-    <h1>WebPush iOS</h1>
-    <p class="subtitle">Gửi thông báo tức thời tới thiết bị của bạn</p>
+    <h1>BIDV Thông Báo</h1>
+    <p class="subtitle">Nhận thông báo giao dịch ngân hàng thực thời</p>
 
     <div id="content">
         <div id="add-to-home-screen" class="card">
             <p>
-                ℹ️ Để WebPush hoạt động trên iPhone/iPad, vui lòng thêm trang này vào <strong>Màn hình chính</strong> (Home Screen).
+                ℹ️ Để có thể nhẫn thông báo từ BIDV trên iPhone/iPad, vui lòng thay ĐØ trang này vào <strong>Màn hình chính</strong> (Home Screen).
             </p>
             <img src="images/webpush-add-to-home-screen.jpg" alt="Hướng dẫn thêm vào Home Screen">
         </div>
 
         <div id="scan-qr-code" class="card">
-            <p>📱 Mở trang này bằng iPhone hoặc iPad:</p>
+            <p>💳 Mở app BIDV trên iPhone hoặc iPad:</p>
             <img src="images/qrcode.png" alt="QR Code">
         </div>
 
-        <button id="subscribe_btn" onclick="subscribeToPush()">🔔 Đăng ký nhận thông báo</button>
+        <button id="subscribe_btn" onclick="subscribeToPush()">🔔 Bật thông báo giao dịch</button>
 
         <div id="active_sub" class="card"></div>
-        <button id="test_send_btn" onclick="testSend()">✉️ Gửi thông báo thử</button>
+        <button id="test_send_btn" onclick="testSend()">✉️ Thử gửi 20 thông báo</button>
     </div>
 
-    <a id="source_link" href="https://github.com/thanhbinhitdev/noti-ios">💻 Mã nguồn</a>
+    <a id="source_link" href="https://github.com/thanhbinhitdev/noti-ios">GitHub Repo</a>
 </div>
 
 <script src="frontend.js"></script>
