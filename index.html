@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="vi">
 <head>
     <title>Ví dụ WebPush cho iOS</title>
     <base href="https://thanhbinhitdev.github.io/noti-ios/">
@@ -6,41 +6,270 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/favicon.png"> <!-- needed for phone PWA app icon -->
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {background-color: #cfc7e2;font-family: Arial, sans-serif;font-size: 18px;padding-bottom: 50px;}
-        .wrapper {max-width: 800px;margin: 0 auto;}
-        @supports (-webkit-touch-callout: none) {#scan-qr-code {display: none;}}
-        #add-to-home-screen {display: none;background-color: bisque;padding: 10px;}
-        #add-to-home-screen img {display: block;margin: 0 auto;padding-top: 10px;max-height: 500px;max-width: 100%}
-        #scan-qr-code img {display: block;max-width: 100%}
-        #subscribe_btn, #test_send_btn {display: none;width: 100%;line-height: 2;font-size: 20px;margin-top: 10px;}
-        #active_sub {display: none;background-color: #e7e7ff;padding: 20px;word-wrap: break-word;}
-        #source_link {position: fixed;bottom: 10px;color: #fff;background-color: rgba(0,0,0,0.5);padding: 5px;left: 10px;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+            font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 16px;
+            color: #1F2937;
+            min-height: 100vh;
+            padding: 40px 20px 80px 20px;
+        }
+
+        .wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Tiêu đề chính */
+        h1 {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            color: #1E293B;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #6B7280;
+            margin-bottom: 48px;
+            font-weight: 400;
+        }
+
+        /* Container chính */
+        #content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Card Style */
+        .card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            border-radius: 24px;
+            padding: 32px 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05),
+                        0 2px 8px rgba(59, 130, 246, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.12),
+                        0 4px 12px rgba(59, 130, 246, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Thông báo nhỏ (Info Card) */
+        #add-to-home-screen,
+        #add-to-home-screen {
+            display: none;
+            background: rgba(255, 235, 205, 0.6);
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        #add-to-home-screen p {
+            color: #92400E;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        #add-to-home-screen img {
+            display: block;
+            max-height: 400px;
+            max-width: 100%;
+            margin: 0 auto;
+            border-radius: 16px;
+        }
+
+        /* QR Code Card */
+        #scan-qr-code {
+            display: none;
+            text-align: center;
+        }
+
+        #scan-qr-code p {
+            color: #6B7280;
+            font-size: 15px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        #scan-qr-code img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+        }
+
+        /* Button Styles */
+        button {
+            display: none;
+            width: 100%;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+
+        #subscribe_btn,
+        #test_send_btn {
+            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+            color: white;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+            margin-bottom: 12px;
+        }
+
+        #subscribe_btn:hover:not(:disabled),
+        #test_send_btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+        }
+
+        #subscribe_btn:active:not(:disabled),
+        #test_send_btn:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* Active Subscription Card */
+        #active_sub {
+            display: none;
+            background: rgba(220, 252, 231, 0.5);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 20px;
+            padding: 24px;
+            word-wrap: break-word;
+            font-size: 14px;
+            color: #166534;
+            line-height: 1.8;
+            font-family: 'Courier New', monospace;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        #active_sub b {
+            display: block;
+            margin-bottom: 12px;
+            color: #15803D;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        /* Source Link */
+        #source_link {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        #source_link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 32px;
+                margin-bottom: 12px;
+            }
+
+            .subtitle {
+                margin-bottom: 36px;
+            }
+
+            .card {
+                padding: 24px 20px;
+                border-radius: 20px;
+            }
+
+            button {
+                padding: 14px 24px;
+                font-size: 15px;
+            }
+
+            #source_link {
+                bottom: 16px;
+                left: 16px;
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+        }
+
+        /* Glassmorphism Effect */
+        @supports (backdrop-filter: blur(10px)) {
+            .card {
+                background: rgba(255, 255, 255, 0.7);
+                backdrop-filter: blur(10px);
+            }
+        }
+
+        /* iOS Safari Compatibility */
+        @supports (-webkit-touch-callout: none) {
+            #scan-qr-code {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 <body>
 <div class="wrapper">
-    <h1>Ví dụ WebPush cho iOS</h1>
+    <h1>WebPush iOS</h1>
+    <p class="subtitle">Gửi thông báo tức thời tới thiết bị của bạn</p>
 
     <div id="content">
-        <div id="add-to-home-screen">
-            Để WebPush hoạt động trên iPhone/iPad bạn có thể cần thêm trang này vào Màn hình chính (Home Screen) nếu
-            trang chưa ở chế độ PWA (window.navigator không ở chế độ standalone).
-            <img src="images/webpush-add-to-home-screen.jpg" alt="webpush add to some screen">
+        <div id="add-to-home-screen" class="card">
+            <p>
+                ℹ️ Để WebPush hoạt động trên iPhone/iPad, vui lòng thêm trang này vào <strong>Màn hình chính</strong> (Home Screen).
+            </p>
+            <img src="images/webpush-add-to-home-screen.jpg" alt="Hướng dẫn thêm vào Home Screen">
         </div>
 
-        <div id="scan-qr-code">Mở trang này bằng iPhone/iPad:
-            <img src="images/qrcode.png" alt="qrCode"><br><br>
+        <div id="scan-qr-code" class="card">
+            <p>📱 Mở trang này bằng iPhone hoặc iPad:</p>
+            <img src="images/qrcode.png" alt="QR Code">
         </div>
 
-        <button id="subscribe_btn" onclick="subscribeToPush()">Đăng ký nhận thông báo</button>
+        <button id="subscribe_btn" onclick="subscribeToPush()">🔔 Đăng ký nhận thông báo</button>
 
-        <div id="active_sub"></div>
-        <button id="test_send_btn" onclick="testSend()">Gửi thông báo thử</button>
+        <div id="active_sub" class="card"></div>
+        <button id="test_send_btn" onclick="testSend()">✉️ Gửi thông báo thử</button>
     </div>
 
-    <a id="source_link" href="https://github.com/thanhbinhitdev/noti-ios">Mã nguồn của trang này</a>
+    <a id="source_link" href="https://github.com/thanhbinhitdev/noti-ios">💻 Mã nguồn</a>
 </div>
 
 <script src="frontend.js"></script>
