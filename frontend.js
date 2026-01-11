@@ -68,16 +68,20 @@ function displaySubscriptionInfo(subscription) {
 }
 
 function testSend() {
-    const title = "Push title";
+    const title = 'Thông báo BIDV'; // Tên hiển thị trên cùng
     const options = {
-        body: "Additional text with some description",
-        icon: "https://andreinwald.github.io/webpush-ios-example/images/push_icon.jpg",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg/1920px-Orange_tabby_cat_sitting_on_fallen_leaves-Hisashi-01A.jpg",
+        body: `Tài khoản thanh toán: 8866476102
+Số tiền GD: +10,000 VND
+Số dư cuối: 10,852 VND
+Nội dung: Chuyển tiền ting ting từ Nyxaria AI`,
+        icon: '/images/bidv-logo.png',
+        badge: '/images/badge.png',
         data: {
             "url": "https://thanhbinhitdev.github.io/noti-ios/?page=success",
             "message_id": "your_internal_unique_message_id_for_tracking"
-        },
+        }
     };
+
     navigator.serviceWorker.ready.then(async function (serviceWorker) {
         await serviceWorker.showNotification(title, options);
     });
