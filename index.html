@@ -179,6 +179,234 @@
             font-weight: 600;
         }
 
+        /* Settings Panel */
+        .settings-panel {
+            display: none;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .settings-panel h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 10px;
+        }
+
+        .form-group select,
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 15px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #1F2937;
+            font-family: 'Be Vietnam Pro', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #3B82F6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .checkbox-item.checked {
+            background: rgba(59, 130, 246, 0.15);
+            border-color: #3B82F6;
+        }
+
+        .checkbox-item input {
+            display: none;
+        }
+
+        .checkbox-item .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #9CA3AF;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-item.checked .checkmark {
+            background: #3B82F6;
+            border-color: #3B82F6;
+        }
+
+        .checkbox-item.checked .checkmark::after {
+            content: '✓';
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .checkbox-item span:last-child {
+            font-size: 14px;
+            color: #374151;
+        }
+
+        .bank-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .bank-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .bank-option:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .bank-option.selected {
+            background: rgba(59, 130, 246, 0.15);
+            border-color: #3B82F6;
+        }
+
+        .bank-option input {
+            display: none;
+        }
+
+        .bank-option .radio-mark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #9CA3AF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .bank-option.selected .radio-mark {
+            border-color: #3B82F6;
+        }
+
+        .bank-option.selected .radio-mark::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #3B82F6;
+            border-radius: 50%;
+        }
+
+        .bank-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+            color: white;
+        }
+
+        .bank-name {
+            font-size: 14px;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .amount-range {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .amount-range input {
+            flex: 1;
+            padding: 12px 14px;
+            font-size: 14px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .amount-range span {
+            color: #6B7280;
+        }
+
+        .settings-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 16px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-radius: 14px;
+            margin-bottom: 16px;
+        }
+
+        .settings-toggle span {
+            font-weight: 600;
+            color: #1F2937;
+            font-size: 15px;
+        }
+
+        .settings-toggle .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .settings-toggle.open .arrow {
+            transform: rotate(180deg);
+        }
+
         /* Source Link */
         #source_link {
             position: fixed;
@@ -264,6 +492,152 @@
         </div>
 
         <button id="subscribe_btn" onclick="subscribeToPush()">🔔 Bật thông báo giao dịch</button>
+
+        <div class="settings-toggle" onclick="toggleSettings()">
+            <span>⚙️ Cài đặt nâng cao</span>
+            <span class="arrow">▼</span>
+        </div>
+
+        <div class="settings-panel" id="settings_panel">
+            <h3>🏦 Chọn ngân hàng</h3>
+            <div class="form-group">
+                <div class="bank-options" id="bank_options">
+                    <label class="bank-option selected" data-bank="BIDV">
+                        <input type="radio" name="bank" value="BIDV" checked>
+                        <div class="radio-mark"></div>
+                        <div class="bank-logo" style="background: linear-gradient(135deg, #1E88E5, #1565C0);">BIDV</div>
+                        <span class="bank-name">BIDV</span>
+                    </label>
+                    <label class="bank-option" data-bank="Vietcombank">
+                        <input type="radio" name="bank" value="Vietcombank">
+                        <div class="radio-mark"></div>
+                        <div class="bank-logo" style="background: linear-gradient(135deg, #1565C0, #0D47A1);">VCB</div>
+                        <span class="bank-name">Vietcombank</span>
+                    </label>
+                    <label class="bank-option" data-bank="MB">
+                        <input type="radio" name="bank" value="MB">
+                        <div class="radio-mark"></div>
+                        <div class="bank-logo" style="background: linear-gradient(135deg, #FF6F00, #E65100);">MB</div>
+                        <span class="bank-name">MB Bank</span>
+                    </label>
+                    <label class="bank-option" data-bank="TPBank">
+                        <input type="radio" name="bank" value="TPBank">
+                        <div class="radio-mark"></div>
+                        <div class="bank-logo" style="background: linear-gradient(135deg, #D81B60, #AD1457);">TPB</div>
+                        <span class="bank-name">TPBank</span>
+                    </label>
+                    <label class="bank-option" data-bank="VietinBank">
+                        <input type="radio" name="bank" value="VietinBank">
+                        <div class="radio-mark"></div>
+                        <div class="bank-logo" style="background: linear-gradient(135deg, #00897B, #00695C);">VTB</div>
+                        <span class="bank-name">VietinBank</span>
+                    </label>
+                    <label class="bank-option" data-bank="Agribank">
+                        <input type="radio" name="bank" value="Agribank">
+                        <div class="radio-mark"></div>
+                        <div class="bank-logo" style="background: linear-gradient(135deg, #43A047, #2E7D32);">AGR</div>
+                        <span class="bank-name">Agribank</span>
+                    </label>
+                    <label class="bank-option" data-bank="Sacombank">
+                        <input type="radio" name="bank" value="Sacombank">
+                        <div class="radio-mark"></div>
+                        <div class="bank-logo" style="background: linear-gradient(135deg, #FFA000, #FF8F00);">STB</div>
+                        <span class="bank-name">Sacombank</span>
+                    </label>
+                    <label class="bank-option" data-bank="Techcombank">
+                        <input type="radio" name="bank" value="Techcombank">
+                        <div class="radio-mark"></div>
+                        <div class="bank-logo" style="background: linear-gradient(135deg, #FF5722, #E64A19);">TCB</div>
+                        <span class="bank-name">Techcombank</span>
+                    </label>
+                    <label class="bank-option" data-bank="VPBank">
+                        <input type="radio" name="bank" value="VPBank">
+                        <div class="radio-mark"></div>
+                        <div class="bank-logo" style="background: linear-gradient(135deg, #7B1FA2, #6A1B9A);">VPB</div>
+                        <span class="bank-name">VPBank</span>
+                    </label>
+                    <label class="bank-option" data-bank="Shinhan">
+                        <input type="radio" name="bank" value="Shinhan">
+                        <div class="radio-mark"></div>
+                        <div class="bank-logo" style="background: linear-gradient(135deg, #5E35B1, #4527A0);">SHB</div>
+                        <span class="bank-name">Shinhan Bank</span>
+                    </label>
+                </div>
+            </div>
+
+            <h3>📊 Số lượng thông báo</h3>
+            <div class="form-group">
+                <select id="notification_count">
+                    <option value="5">5 thông báo</option>
+                    <option value="10">10 thông báo</option>
+                    <option value="20" selected>20 thông báo</option>
+                    <option value="50">50 thông báo</option>
+                    <option value="100">100 thông báo</option>
+                </select>
+            </div>
+
+            <h3>💳 Loại giao dịch</h3>
+            <div class="form-group">
+                <div class="checkbox-group" id="transaction_types">
+                    <label class="checkbox-item checked" data-type="naptien">
+                        <input type="checkbox" value="naptien" checked>
+                        <div class="checkmark"></div>
+                        <span>Nạp tiền</span>
+                    </label>
+                    <label class="checkbox-item checked" data-type="chuyenkhoan">
+                        <input type="checkbox" value="chuyenkhoan" checked>
+                        <div class="checkmark"></div>
+                        <span>Chuyển khoản</span>
+                    </label>
+                    <label class="checkbox-item checked" data-type="thanhtoan">
+                        <input type="checkbox" value="thanhtoan" checked>
+                        <div class="checkmark"></div>
+                        <span>Thanh toán</span>
+                    </label>
+                    <label class="checkbox-item checked" data-type="muasam">
+                        <input type="checkbox" value="muasam" checked>
+                        <div class="checkmark"></div>
+                        <span>Mua sắm</span>
+                    </label>
+                    <label class="checkbox-item" data-type="ruttien">
+                        <input type="checkbox" value="ruttien">
+                        <div class="checkmark"></div>
+                        <span>Rút tiền</span>
+                    </label>
+                    <label class="checkbox-item" data-type="baohiem">
+                        <input type="checkbox" value="baohiem">
+                        <div class="checkmark"></div>
+                        <span>Bảo hiểm</span>
+                    </label>
+                </div>
+            </div>
+
+            <h3>💰 Mức tiền giao dịch</h3>
+            <div class="form-group">
+                <div class="checkbox-group" id="amount_ranges">
+                    <label class="checkbox-item" data-range="small">
+                        <input type="checkbox" value="small">
+                        <div class="checkmark"></div>
+                        <span>Nhỏ (100K-500K)</span>
+                    </label>
+                    <label class="checkbox-item checked" data-range="medium">
+                        <input type="checkbox" value="medium" checked>
+                        <div class="checkmark"></div>
+                        <span>Trung bình (500K-5M)</span>
+                    </label>
+                    <label class="checkbox-item checked" data-range="large">
+                        <input type="checkbox" value="large" checked>
+                        <div class="checkmark"></div>
+                        <span>Lớn (5M-50M)</span>
+                    </label>
+                    <label class="checkbox-item" data-range="vip">
+                        <input type="checkbox" value="vip">
+                        <div class="checkmark"></div>
+                        <span>VIP (50M+)</span>
+                    </label>
+                </div>
+            </div>
+        </div>
 
         <div id="active_sub" class="card"></div>
         <button id="test_send_btn" onclick="testSend()">✉️ Thử gửi 20 thông báo</button>
