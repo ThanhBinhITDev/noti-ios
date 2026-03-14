@@ -181,13 +181,17 @@
 
         /* Settings Panel */
         .settings-panel {
-            display: none;
+            display: block;
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(59, 130, 246, 0.15);
             border-radius: 20px;
             padding: 24px;
             margin-bottom: 20px;
+        }
+
+        .settings-panel.hidden {
+            display: none;
         }
 
         .settings-panel h3 {
@@ -493,12 +497,12 @@
 
         <button id="subscribe_btn" onclick="subscribeToPush()">🔔 Bật thông báo giao dịch</button>
 
-        <div class="settings-toggle" onclick="toggleSettings()">
+        <div class="settings-toggle" onclick="toggleSettings()" style="display: flex;">
             <span>⚙️ Cài đặt nâng cao</span>
             <span class="arrow">▼</span>
         </div>
 
-        <div class="settings-panel" id="settings_panel">
+        <div class="settings-panel hidden" id="settings_panel">
             <h3>🏦 Chọn ngân hàng</h3>
             <div class="form-group">
                 <div class="bank-options" id="bank_options">

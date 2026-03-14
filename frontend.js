@@ -31,8 +31,17 @@ function toggleSettings() {
     const toggle = document.querySelector('.settings-toggle');
     const panel = document.getElementById('settings_panel');
     toggle.classList.toggle('open');
-    panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+    if (panel.classList.contains('hidden')) {
+        panel.classList.remove('hidden');
+    } else {
+        panel.classList.add('hidden');
+    }
 }
+
+window.addEventListener('DOMContentLoaded', function() {
+    const panel = document.getElementById('settings_panel');
+    panel.classList.add('hidden');
+});
 
 document.querySelectorAll('.bank-option').forEach(option => {
     option.addEventListener('click', () => {
@@ -159,7 +168,9 @@ function displaySubscriptionInfo(subscription) {
     document.getElementById('active_sub').innerHTML = '<b>✅ Đã kích hoạt thông báo BIDV</b><br><br><small>Bạn sẽ nhận được thông báo giao dịch theo thời gian thực từ ngân hàng.</small><br><br><code>' 
         + JSON.stringify(subscription.toJSON()).substring(0, 200) + '...</code>';
     document.getElementById('test_send_btn').style.display = 'block';
-    document.getElementById('settings_panel').style.display = 'block';
+    const panel = document.getElementById('settings_panel');
+    panel.classList.remove('hidden');
+    document.querySelector('.settings-toggle').style.display = 'flex';
 }
 
 function testSend() {
